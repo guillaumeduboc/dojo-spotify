@@ -95,6 +95,10 @@ const App = () => {
           'Loading...'
         ) : (
           <div>
+            <h2>{`${selectedTrack?.name} (${selectedTrackIndex + 1} / ${
+              tracks.length
+            })`}</h2>
+            <AlbumCover track={selectedTrack} />
             <div>
               <audio
                 src={currentTrack?.track?.preview_url ?? ''}
