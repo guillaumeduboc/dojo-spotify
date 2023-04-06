@@ -1,7 +1,7 @@
 import logo from './assets/logo.svg';
 import './App.css';
 import { PlaylistTrack } from 'spotify-types';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 
 const apiToken = '';
@@ -27,7 +27,7 @@ const App = () => {
     data: tracks,
     isSuccess,
     isLoading,
-  } = useQuery('tracks', fetchTracks);
+  } = useQuery({ queryKey: ['tracks'], queryFn: fetchTracks });
 
   const [selectedTrackIndex, setSelectedTrackIndex] = useState(0);
 
